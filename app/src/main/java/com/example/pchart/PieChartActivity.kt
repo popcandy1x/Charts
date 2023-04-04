@@ -1,8 +1,12 @@
 package com.example.pchart
 
 import android.graphics.Color
+import android.graphics.ColorFilter
+import android.graphics.Typeface
+import android.graphics.fonts.FontFamily
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.CalendarContract
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.PieData
@@ -32,19 +36,35 @@ class PieChartActivity : AppCompatActivity() {
 
         pieDataSet.setColors(ColorTemplate.MATERIAL_COLORS,255)
 
-        pieDataSet.valueTextSize=15f
+        pieDataSet.valueTextSize=23f
+        pieDataSet.valueTypeface = Typeface.create(resources.getFont(R.font.bebas_nue_400),Typeface.BOLD)
 
         pieDataSet.valueTextColor=Color.BLACK
 
+        pieChart.setEntryLabelColor(Color.BLACK)
+
+
+        pieChart.setEntryLabelTypeface(Typeface.create(resources.getFont(R.font.bebas_nue_400),Typeface.BOLD_ITALIC))
         val pieData = PieData(pieDataSet)
 
         pieChart.data=pieData
 
+        pieChart.setHoleColor(Color.BLACK)
+
         pieChart.description.text = "Pie Chart"
 
-        pieChart.centerText="Expenses"
+        pieChart.centerText="EXPENSES"
+
+        pieChart.setCenterTextTypeface(Typeface.create(resources.getFont(R.font.bebas_nue_400),Typeface.ITALIC))
+
+
+        pieChart.setCenterTextColor(Color.CYAN)
+
+        pieChart.setCenterTextSize(24f)
+
 
         pieChart.animateY(2000)
+
 
 
 
