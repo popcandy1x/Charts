@@ -31,7 +31,7 @@ class PieChartActivity : AppCompatActivity() {
         list.add(PieEntry(200f,"Canteen"))
         list.add(PieEntry(300f,"College"))
         list.add(PieEntry(400f,"Online Courses"))
-        list.add(PieEntry(500f,"Entertainment"))
+        list.add(PieEntry(10000f,"Entertainment"))
 
         val pieDataSet = PieDataSet(list,"List")
 
@@ -52,6 +52,8 @@ class PieChartActivity : AppCompatActivity() {
 
         pieChart.setEntryLabelTypeface(Typeface.create(resources.getFont(R.font.bebas_nue_400),Typeface.BOLD_ITALIC))
         val pieData = PieData(pieDataSet)
+
+        pieChart.setMinAngleForSlices(30f)
 
         pieChart.data=pieData
 
