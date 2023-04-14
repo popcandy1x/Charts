@@ -7,6 +7,7 @@ import android.graphics.fonts.FontFamily
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.CalendarContract
+import androidx.core.view.size
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.PieData
@@ -35,13 +36,18 @@ class PieChartActivity : AppCompatActivity() {
         val pieDataSet = PieDataSet(list,"List")
 
         pieDataSet.setColors(ColorTemplate.MATERIAL_COLORS,255)
+        pieDataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        pieDataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE)
+        pieDataSet.setValueLineColor(Color.CYAN)
+        pieDataSet.setValueLineWidth(1.5f)
 
         pieDataSet.valueTextSize=23f
         pieDataSet.valueTypeface = Typeface.create(resources.getFont(R.font.bebas_nue_400),Typeface.BOLD)
 
-        pieDataSet.valueTextColor=Color.BLACK
+        pieDataSet.valueTextColor=Color.WHITE
 
-        pieChart.setEntryLabelColor(Color.BLACK)
+        pieChart.setEntryLabelColor(Color.WHITE)
+
 
 
         pieChart.setEntryLabelTypeface(Typeface.create(resources.getFont(R.font.bebas_nue_400),Typeface.BOLD_ITALIC))
